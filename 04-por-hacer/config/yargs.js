@@ -1,13 +1,13 @@
 const argv = require("yargs")
   .command("crear", "Crear un elemento por hacer", {
-    description: {
+    descripcion: {
       demand: true,
       alias: "d",
       desc: "Descripción de la tarea por hacer"
     }
   })
   .command("actualizar", "Actualiza el estado completado de una tarea", {
-    description: {
+    descripcion: {
       demand: true,
       alias: "d",
       desc: "Descripción de la tarea por hacer"
