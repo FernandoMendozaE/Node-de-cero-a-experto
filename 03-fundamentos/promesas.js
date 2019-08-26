@@ -13,14 +13,14 @@ let empleados = [
   }
 ];
 
-let salario = [
+let salarios = [
   {
     id: 1,
-    slario: 1000
+    salario: 1000
   },
   {
     id: 2,
-    slario: 2000
+    salario: 2000
   }
 ];
 
@@ -35,11 +35,26 @@ let getEmpleado = id => {
   });
 };
 
-getEmpleado(10).then(
+let getSalario = empleado => {
+  return new Promise((resolve, reject) => {
+    let salarioDB = salarios.find(salario => salario.id === empleado.id);
+    if (!salarioDB) {
+      reject(`No se encontró un salario para el empleado ${empleado.nombre}`);
+    } else {
+      resolve(salarioDB);
+    }
+  });
+};
+
+getEmpleado(1).then(
   empleado => {
-    console.log("Emoleado de BD", empleado);
+    // console.log("Emoleado de BD", empleado);
+    getSalario(empleado).then(
+      salario => {
+        console.log(`El saliro de ${empleado.nombre} es ${salario.salario}$`);
+      },
+      err => console.log(err)
+    );
   },
-  err => {
-    console.log(err);
-  }
+  err => console.log(err)
 );
