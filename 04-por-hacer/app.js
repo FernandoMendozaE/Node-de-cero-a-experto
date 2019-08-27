@@ -5,8 +5,6 @@ const colors = require("colors");
 const porHacer = require("./por-hacer/por-hacer");
 let comando = argv._[0];
 
-console.log('Prueba 2')
-
 switch (comando) {
   case "crear":
     let tarea = porHacer.crear(argv.descripcion);
@@ -24,8 +22,14 @@ switch (comando) {
     break;
 
   case "actualizar":
-    let actualizado = porHacer.actulizar(argv.descripcion, argv.completado);
     // console.log("Actualiza una tarea por hacer");
+    let actualizado = porHacer.actulizar(argv.descripcion, argv.completado);
+    console.log(actualizado);
+    break;
+
+  case "borrar":
+    let borrado = porHacer.borrar(argv.descripcion);
+    // console.log(borrado);
     break;
 
   default:

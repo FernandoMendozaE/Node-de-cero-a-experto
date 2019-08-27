@@ -44,11 +44,11 @@ const getListado = () => {
 const actulizar = (descripcion, completado = true) => {
   cargarDB();
 
+  // buscar un elemento id (para caso prueba sera descripción)
   let index = listadoPorHacer.findIndex(
     tarea => tarea.descripcion === descripcion
   );
-  console.log(index);
-
+  // console.log(index);
   if (index >= 0) {
     listadoPorHacer[index].completado = completado;
     guardarDB();
@@ -58,8 +58,25 @@ const actulizar = (descripcion, completado = true) => {
   }
 };
 
+const borrar = descripcion => {
+  cargarDB();
+  // filtar datos
+  let nuevoListado = listadoPorHacer.filter(tarea => {
+    return tarea.descripcion !== descripcion;
+  });
+
+  if (listadoPorHacer.length === nuevoListado.length) {
+    return false;
+  } else {
+    listadoPorHacer = nuevoListado;
+    guardarDB();
+    return true;
+  }
+};
+
 module.exports = {
   crear,
   getListado,
-  actulizar
+  actulizar,
+  borrar
 };
