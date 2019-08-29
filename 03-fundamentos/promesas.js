@@ -41,20 +41,19 @@ let getSalario = empleado => {
     if (!salarioDB) {
       reject(`No se encontró un salario para el empleado ${empleado.nombre}`);
     } else {
-      resolve(salarioDB);
+      resolve({
+        salario: salarioDB,
+        nombre: empleado.nombre
+      });
     }
   });
 };
 
-getEmpleado(1).then(
-  empleado => {
-    // console.log("Emoleado de BD", empleado);
-    getSalario(empleado).then(
-      salario => {
-        console.log(`El saliro de ${empleado.nombre} es ${salario.salario}$`);
-      },
-      err => console.log(err)
-    );
-  },
-  err => console.log(err)
-);
+getEmpleado(1)
+  .then(empleado => {
+    return getSalario(empleado);
+  })
+  .then(resp => {
+    console.log(`El salario de ${resp.nombre} es de ${resp.salario.salario}`);
+  })
+  .catch(err => console.log(err));
