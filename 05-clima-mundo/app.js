@@ -1,4 +1,5 @@
-
+const lugar = require("./lugar/lugar");
+const clima = require("./clima/clima");
 
 const argv = require("yargs").options({
   direccion: {
@@ -8,6 +9,14 @@ const argv = require("yargs").options({
   }
 }).argv;
 
-// console.log(argv.direccion);
+// lugar
+//   .getLugarLatLng(argv.direccion)
+//   .then(resp => {
+//     console.log(resp);
+//   })
+//   .catch(e => console.log(e));
 
-// encodeURI permite eliminar espacio para la URL
+clima
+  .getClima(-16.489689, -68.11929359999999)
+  .then(temp => console.log(temp))
+  .catch(e => console.log(e));
