@@ -1,5 +1,4 @@
 const hbs = require("hbs");
-let b = 8;
 
 // helpers
 hbs.registerHelper("getAnio", () => {
