@@ -1,4 +1,5 @@
 const hbs = require("hbs");
+let b = 8;
 
 // helpers
 hbs.registerHelper("getAnio", () => {
@@ -7,7 +8,7 @@ hbs.registerHelper("getAnio", () => {
 
 hbs.registerHelper("capitalizar", texto => {
   let palabras = texto.split(" ");
-  
+
   palabras.forEach((palabra, idx) => {
     // charAt --> Obtener primer caracter de un array
     // slice --> obtener todos los caracteres despues de InputDeviceInfo
