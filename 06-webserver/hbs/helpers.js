@@ -7,7 +7,6 @@ hbs.registerHelper("getAnio", () => {
 
 hbs.registerHelper("capitalizar", texto => {
   let palabras = texto.split(" ");
-  let a = 4;
   palabras.forEach((palabra, idx) => {
     // charAt --> Obtener primer caracter de un array
     // slice --> obtener todos los caracteres despues de InputDeviceInfo
