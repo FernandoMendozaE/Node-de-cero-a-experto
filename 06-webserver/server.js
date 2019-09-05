@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 const hbs = require("hbs");
+require("./hbs/helpers");
 
 app.use(express.static(__dirname + "/public"));
 
@@ -9,14 +10,9 @@ app.use(express.static(__dirname + "/public"));
 hbs.registerPartials(__dirname + "/views/parciales");
 app.set("view engine", "hbs");
 
-// helpers
-hbs.registerHelper("getAnio", () => {
-  return new Date().getFullYear();
-});
-
 app.get("/", (req, res) => {
   res.render("home", {
-    nombre: "Fernando"
+    nombre: "fernando"
   });
 });
 
