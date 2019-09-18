@@ -26,4 +26,3 @@ app.listen(port, () => {
   console.log(`Escuchando peticiones en el puerto ${port}`);
 });
 
-console.log('Prueba Impacto 8')
