@@ -26,3 +26,4 @@ app.listen(port, () => {
   console.log(`Escuchando peticiones en el puerto ${port}`);
 });
 
+console.log('Prueba VS code')
